@@ -1,0 +1,7 @@
+back-end/__pycache__
+back-end/app/__pycache__
+back-end/*.pyc
+back-end/*/*.pyc
+front-end/node_modules
+front-end/build
+front-end/yarn.lock
