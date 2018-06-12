@@ -14,7 +14,7 @@ CORS(app)
 ##########################################################
 @app.route('/<path:path>',  methods=["GET","POST"])
 def catch_api(path):
-	data = request.data.decode('ascii')
+	data = request.data.decode('ascii') 
 	service = api_prepair(path, data)
 	return jsonify(service), 200
 

@@ -9,21 +9,22 @@ from flask import request
 ##				FRONT END AND CALLS THE METHOD.
 ##########################################################
 def api_prepair(path, data=None):
-	call = path.split('/')
-	server = call[1]
-	method = call[2]
-	if not data:
-		call = 'm.{0}()'.format(method)
-	else:
-		call = 'm.{0}(**{1})'.format(method, data)
-	
-	try:
-		return eval(call)
-	except Exception as err:
-		logging('ERROR',err)
-		return {'error': str(err)}
-	finally:
-		print("API CALL COMPLETED")
+	if 'server1' in path:
+		call = path.split('/')
+		server = call[1]
+		method = call[2]
+		if not data:
+			call = 'm.{0}()'.format(method)
+		else:
+			call = 'm.{0}(**{1})'.format(method, data)
+		
+		try:
+			return eval(call)
+		except Exception as err:
+			logging('ERROR',err)
+			return {'error': str(err)}
+		finally:
+			print("API CALL COMPLETED")
 
 ##########################################################
 ## NAME:		TEST2
@@ -31,7 +32,7 @@ def api_prepair(path, data=None):
 ## AUTHOR: 		STEFAN
 ## DESCRIPTION:	PRINTING OUT THE INFORMATION DATA
 ##########################################################
-def logging(function=None, data=None):
+def logging(function='****', data=None):
 	print('*****'+function+'*******')
 	print(data)
 	print('*****'+function+'*******')
